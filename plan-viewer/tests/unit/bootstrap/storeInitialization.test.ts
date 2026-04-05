@@ -45,6 +45,13 @@ const repositoriesManifest: RepositoriesManifest = {
   ],
 }
 
+const emptyRepositoriesManifest: RepositoriesManifest = {
+  version: '1.0.0',
+  generatedAt: '2026-01-01T00:00:00.000Z',
+  totalRepositories: 0,
+  repositories: [],
+}
+
 const alphaPlansManifest: RepoPlansManifest = {
   repository: 'JuniMods/Alpha',
   generatedAt: '2026-01-01T00:00:00.000Z',
@@ -76,6 +83,7 @@ describe('store initialization from bundled manifests', () => {
     const plansStore = usePlansStore(pinia)
 
     expect(result.repositoriesLoaded).toBe(true)
+    expect(result.repositoriesCount).toBe(2)
     expect(result.repositoryPlansLoaded).toBe(2)
     expect(result.issues).toEqual([])
     expect(repositoriesStore.all).toHaveLength(2)
@@ -91,9 +99,10 @@ describe('store initialization from bundled manifests', () => {
     const plansStore = usePlansStore(pinia)
 
     expect(result.repositoriesLoaded).toBe(false)
+    expect(result.repositoriesCount).toBe(0)
     expect(result.repositoryPlansLoaded).toBe(0)
     expect(repositoriesStore.error).toContain('Repositories manifest was not found in bundled data')
-    expect(plansStore.error).toContain('Repository plans manifests were not found in bundled data')
+    expect(plansStore.error).toBeNull()
   })
 
   it('detects invalid and duplicate manifest payloads', () => {
@@ -108,5 +117,19 @@ describe('store initialization from bundled manifests', () => {
     expect(extraction.repoPlansManifests).toEqual([alphaPlansManifest])
     expect(extraction.repositoryIssues).toContain('Invalid repositories manifest payload found in bundled data')
     expect(extraction.planIssues).toContain('Duplicate plans manifest for JuniMods/Alpha ignored')
+  })
+
+  it('does not report missing plan manifests when no repositories are discovered', () => {
+    const pinia = createPinia()
+    const result = initializeStoresFromBundledManifests(pinia, [emptyRepositoriesManifest])
+
+    const repositoriesStore = useRepositoriesStore(pinia)
+    const plansStore = usePlansStore(pinia)
+
+    expect(result.repositoriesLoaded).toBe(true)
+    expect(result.repositoriesCount).toBe(0)
+    expect(result.repositoryPlansLoaded).toBe(0)
+    expect(repositoriesStore.error).toBeNull()
+    expect(plansStore.error).toBeNull()
   })
 })

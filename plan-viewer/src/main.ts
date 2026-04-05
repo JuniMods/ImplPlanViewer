@@ -82,7 +82,10 @@ app.use(vuetify).use(pinia).use(router)
 
 const initialization = initializeStoresFromBundledManifests(pinia)
 
-if (!initialization.repositoriesLoaded || initialization.repositoryPlansLoaded === 0) {
+if (
+  !initialization.repositoriesLoaded ||
+  (initialization.repositoriesCount > 0 && initialization.repositoryPlansLoaded === 0)
+) {
   void router.replace({
     name: 'error',
     query: {

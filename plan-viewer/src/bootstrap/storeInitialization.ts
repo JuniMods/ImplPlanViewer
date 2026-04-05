@@ -25,6 +25,7 @@ export interface BundledManifestExtractionResult {
 
 export interface StoreInitializationResult {
   repositoriesLoaded: boolean
+  repositoriesCount: number
   repositoryPlansLoaded: number
   issues: string[]
 }
@@ -77,7 +78,7 @@ export const extractBundledManifests = (payloads: unknown[]): BundledManifestExt
     repositoryIssues.push('Repositories manifest was not found in bundled data')
   }
 
-  if (repoPlansByRepository.size === 0) {
+  if ((repositoriesManifest?.totalRepositories ?? 0) > 0 && repoPlansByRepository.size === 0) {
     planIssues.push('Repository plans manifests were not found in bundled data')
   }
 
@@ -117,6 +118,7 @@ export const initializeStoresFromBundledManifests = (
 
   return {
     repositoriesLoaded: repositoriesManifest !== null,
+    repositoriesCount: repositoriesManifest?.totalRepositories ?? 0,
     repositoryPlansLoaded: repoPlansManifests.length,
     issues: [...repositoryIssues, ...planIssues],
   }
