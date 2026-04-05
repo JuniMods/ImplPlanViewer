@@ -1,0 +1,33 @@
+name: Post-Launch Monitoring
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 * * * *'
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  monitor-deployments:
+    name: Monitor deployment health
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Monitor latest deployment workflow
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          MONITOR_WORKFLOW_NAME: Build and Deploy
+          MAX_DEPLOY_DURATION_MINUTES: 15
+        run: node scripts/monitor-actions.js > monitoring-summary.json
+
+      - name: Upload monitoring summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: monitoring-summary
+          path: monitoring-summary.json
