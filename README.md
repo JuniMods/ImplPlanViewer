@@ -186,6 +186,9 @@ MANIFEST_INPUT=
 PARSE_INPUT=
 ```
 
+> For GitHub repository **Variables** (Actions UI), use non-reserved names:
+> `IMPLPLAN_ORG`, `IMPLPLAN_TOPIC`, `IMPLPLAN_DISCOVERY_MODE`.
+
 ### App environment (`plan-viewer/.env`)
 
 ```env
@@ -222,6 +225,77 @@ node scripts/generate-manifests.js < manifest-input.json
 # Validate generated manifests
 node scripts/validate-manifests.js plan-viewer/src/data
 ```
+
+## 🔐 GitHub Setup: Organization/Private Repository Access
+
+Use these steps if ImplPlanViewer must read private repositories in the `JuniMods` organization.
+
+### 1) Configure ImplPlanViewer repository settings
+
+In `JuniMods/ImplPlanViewer`:
+
+1. Go to **Settings → Pages** and set **Source = GitHub Actions**.
+2. Go to **Settings → Actions → General** and ensure Actions are enabled.
+3. Go to **Settings → Actions → General → Workflow permissions** and allow:
+   - **Read and write permissions**
+   - **Allow GitHub Actions to create and approve pull requests** (optional, not required for this pipeline)
+
+### 2) Add repository variables (non-reserved names)
+
+In **Settings → Secrets and variables → Actions → Variables**, add:
+
+- `IMPLPLAN_ORG=JuniMods`
+- `IMPLPLAN_DISCOVERY_MODE=org` (or `topic`)
+- `IMPLPLAN_TOPIC=impl-plan-viewer` (used when discovery mode is `topic`)
+
+> GitHub does not allow custom variable names starting with `GITHUB_`, so this project uses `IMPLPLAN_*` variable names in GitHub settings and maps them internally in workflows.
+
+### 3) Create a token that can read private org repositories
+
+Create a Personal Access Token for cross-repo access:
+
+1. Go to **GitHub → Settings → Developer settings → Personal access tokens**.
+2. Prefer **Fine-grained PAT**:
+   - Repository access: all required private repos in `JuniMods` (or all org repos, if intended)
+   - Permissions needed:
+     - **Contents: Read**
+     - **Metadata: Read**
+     - **Actions: Read** (recommended)
+3. If using a classic PAT, use `repo` scope.
+4. If your org enforces SSO, authorize the token for `JuniMods`.
+
+### 4) Add token to ImplPlanViewer secrets
+
+In `JuniMods/ImplPlanViewer`:
+
+1. Go to **Settings → Secrets and variables → Actions → Secrets**.
+2. Add:
+   - `GH_PAT=<your_token>`
+
+The workflow already uses:
+
+- `GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}`
+
+So it will prefer `GH_PAT` for private org reads.
+
+### 5) (Optional) Configure source repositories to push updates automatically
+
+For each source repo in `JuniMods`:
+
+1. Ensure plans are in `implementation-plans/`.
+2. Add topic `impl-plan-viewer` (if using `topic` discovery).
+3. Add a secret named `PLAN_VIEWER_TOKEN` with permission to call repository dispatch on `JuniMods/ImplPlanViewer`.
+4. Add a workflow that triggers `repository_dispatch` to ImplPlanViewer when plans change.
+
+### 6) Verify end-to-end
+
+1. In ImplPlanViewer, run **Actions → Build and Deploy → Run workflow**.
+2. Confirm jobs succeed:
+   - Discover repositories
+   - Fetch & parse
+   - Build Vue application
+   - Deploy to GitHub Pages
+3. Open the Pages URL and confirm private-org repositories/plans are included.
 
 ## 📤 Source Repository Setup (Adding Plans)
 

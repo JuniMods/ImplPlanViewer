@@ -44,9 +44,9 @@ jobs:
         id: discover
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
-          GITHUB_ORG: ${{ vars.GITHUB_ORG || github.repository_owner }}
-          GITHUB_TOPIC: ${{ vars.GITHUB_TOPIC || 'impl-plan-viewer' }}
-          DISCOVERY_MODE: ${{ vars.DISCOVERY_MODE || 'topic' }}
+          GITHUB_ORG: ${{ vars.IMPLPLAN_ORG || github.repository_owner }}
+          GITHUB_TOPIC: ${{ vars.IMPLPLAN_TOPIC || 'impl-plan-viewer' }}
+          DISCOVERY_MODE: ${{ vars.IMPLPLAN_DISCOVERY_MODE || 'topic' }}
           INCLUDE_REPOS: ${{ github.event.inputs.specific_repo }}
         run: |
           node scripts/discover-repositories.js > discovery.json

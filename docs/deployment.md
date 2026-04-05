@@ -26,9 +26,9 @@ This guide documents how ImplPlanViewer deploys to GitHub Pages and which events
 - `GITHUB_TOKEN` is provided automatically by GitHub Actions
 
 ### Repository Variables (optional)
-- `GITHUB_ORG` (defaults to repository owner)
-- `GITHUB_TOPIC` (defaults to `impl-plan-viewer`)
-- `DISCOVERY_MODE` (`topic` or `org`, defaults to `topic`)
+- `IMPLPLAN_ORG` (defaults to repository owner)
+- `IMPLPLAN_TOPIC` (defaults to `impl-plan-viewer`)
+- `IMPLPLAN_DISCOVERY_MODE` (`topic` or `org`, defaults to `topic`)
 
 ## Build-and-Deploy Trigger Matrix
 
