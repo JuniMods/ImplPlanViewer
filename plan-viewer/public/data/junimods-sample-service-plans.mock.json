@@ -1,0 +1,20 @@
+{
+  "repository": "JuniMods/sample-service",
+  "generatedAt": "2026-04-05T08:00:00.000Z",
+  "totalPlans": 1,
+  "plans": [
+    {
+      "id": "101",
+      "number": 101,
+      "title": "Harden API authentication flow",
+      "type": "enhancement",
+      "scope": "Auth, API",
+      "priority": "critical",
+      "objective": "Improve token validation and refresh handling.",
+      "testingStrategy": "Add unit and integration tests for token expiry and refresh edge cases.",
+      "rollout": "Deploy incrementally and monitor authentication failure metrics.",
+      "notes": "Represents a private repository plan.",
+      "updatedAt": "2026-04-04T16:00:00.000Z"
+    }
+  ]
+}

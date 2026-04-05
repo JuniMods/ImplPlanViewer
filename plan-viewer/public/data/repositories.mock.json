@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0-mock",
+  "generatedAt": "2026-04-05T08:00:00.000Z",
+  "totalRepositories": 2,
+  "repositories": [
+    {
+      "id": 1001,
+      "name": "ImplPlanViewer",
+      "fullName": "JuniMods/ImplPlanViewer",
+      "description": "Centralized implementation plan dashboard",
+      "htmlUrl": "https://github.com/JuniMods/ImplPlanViewer",
+      "defaultBranch": "main",
+      "private": false,
+      "archived": false,
+      "disabled": false,
+      "topics": ["impl-plan-viewer", "vue", "planning"],
+      "planCount": 2,
+      "updatedAt": "2026-04-05T07:45:00.000Z"
+    },
+    {
+      "id": 1002,
+      "name": "sample-service",
+      "fullName": "JuniMods/sample-service",
+      "description": "Sample backend used for integration tests",
+      "htmlUrl": "https://github.com/JuniMods/sample-service",
+      "defaultBranch": "main",
+      "private": true,
+      "archived": false,
+      "disabled": false,
+      "topics": ["impl-plan-viewer", "service"],
+      "planCount": 1,
+      "updatedAt": "2026-04-04T16:10:00.000Z"
+    }
+  ]
+}
