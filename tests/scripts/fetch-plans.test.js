@@ -24,6 +24,7 @@ test('fetchPlans returns markdown plans and metadata', async () => {
         json: async () => [
           { type: 'file', name: '001_test.md', path: 'implementation-plans/001_test.md', sha: 'a1', size: 12 },
           { type: 'file', name: 'auth_plan.md', path: 'implementation-plans/auth_plan.md', sha: 'a3', size: 10 },
+          { type: 'file', name: 'TEMPLATE.md', path: 'implementation-plans/TEMPLATE.md', sha: 'a4', size: 8 },
           { type: 'file', name: 'notes.txt', path: 'implementation-plans/notes.txt', sha: 'a2', size: 4 },
         ],
         text: async () => '',
@@ -46,6 +47,10 @@ test('fetchPlans returns markdown plans and metadata', async () => {
         json: async () => ({ content, html_url: 'https://github.com/JuniMods/Repo/blob/main/implementation-plans/auth_plan.md' }),
         text: async () => '',
       }
+    }
+
+    if (url.includes('implementation-plans%2FTEMPLATE.md')) {
+      throw new Error('TEMPLATE.md should be ignored and never fetched')
     }
 
     throw new Error(`Unexpected request: ${url}`)

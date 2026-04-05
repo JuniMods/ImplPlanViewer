@@ -303,10 +303,13 @@ For each source repo in `JuniMods`:
 ## 📤 Source Repository Setup (Adding Plans)
 
 1. Create `implementation-plans/` in the source repository.
-2. Add plan files using `NNN_name.md` (example: `001_add_auth.md`).
-3. Add topic `impl-plan-viewer` (or include the repository explicitly).
-4. Add a workflow that sends `repository_dispatch` to this repository on plan changes.
-5. Store a PAT with repo access as `PLAN_VIEWER_TOKEN` in the source repository secrets.
+2. Copy this repo's root template file `TEMPLATE.md` into the source repository at `implementation-plans/TEMPLATE.md`.
+3. Add plan files using `NNN_name.md` (example: `001_add_auth.md`).
+   - Keep `implementation-plans/TEMPLATE.md` as a reference template only.
+   - The pipeline ignores `TEMPLATE.md` and does not parse it as a plan.
+4. Add topic `impl-plan-viewer` (or include the repository explicitly).
+5. Add a workflow that sends `repository_dispatch` to this repository on plan changes.
+6. Store a PAT with repo access as `PLAN_VIEWER_TOKEN` in the source repository secrets.
 
 ## 📋 Plan File Format
 
@@ -357,6 +360,7 @@ Files in `implementation-plans/` must follow: `NNN_descriptive_name.md`
 - `NNN`: Zero-padded 3-digit number (001, 002, ..., 099)
 - `descriptive_name`: Lowercase, underscores, no spaces
 - Examples: `001_add_authentication.md`, `042_refactor_api_layer.md`
+- `TEMPLATE.md` is allowed in `implementation-plans/` as a helper file and is intentionally ignored by fetch/parse scripts.
 
 ## 🛠️ Tech Stack
 
@@ -417,8 +421,9 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ## 🔗 Related Projects
 
-- [IMPLEMENTATION_PLAN_TEMPLATE.md](IMPLEMENTATION_PLAN_TEMPLATE.md) - The plan template file
-- [IDEA.md](IDEA.md) - Original project proposal and detailed design
+- [TEMPLATE.md](TEMPLATE.md) - Canonical plan template to copy into `implementation-plans/TEMPLATE.md`
+- [IMPLEMENTATION_PLAN_TEMPLATE.md](IMPLEMENTATION_PLAN_TEMPLATE.md) - Legacy template reference
+- [INITIAL_DOCS/IDEA.md](INITIAL_DOCS/IDEA.md) - Original project proposal and detailed design
 
 ## 💡 Inspiration
 

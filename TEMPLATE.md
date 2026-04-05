@@ -1,14 +1,14 @@
-# Legacy Template Copy
+# Implementation Plan Template
 
-This file is kept for backward compatibility.
+Use this file as the canonical template for source repositories.
 
-Use `TEMPLATE.md` in the repository root as the canonical template.
+Recommended usage in each source repo:
 
-If you copy a template into a source repository, place it at:
+1. Copy this file to `implementation-plans/TEMPLATE.md`.
+2. Create real plan files next to it using `NNN_descriptive_name.md` (for example `001_add_authentication.md`).
+3. Keep `TEMPLATE.md` as a reference only.
 
-- `implementation-plans/TEMPLATE.md`
-
-and create real plans as numbered files (`NNN_descriptive_name.md`).
+> `implementation-plans/TEMPLATE.md` is intentionally ignored by this viewer's fetch/parse pipeline.
 
 ---
 

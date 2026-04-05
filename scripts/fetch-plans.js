@@ -3,6 +3,7 @@
 const PLAN_DIRECTORY = 'implementation-plans'
 const PLAN_FILE_PATTERN = /^\d{3}_.+\.md$/i
 const MARKDOWN_FILE_PATTERN = /\.(md|markdown)$/i
+const TEMPLATE_FILENAME = 'template.md'
 const MAX_WARN_SIZE_BYTES = 1024 * 1024
 const API_BASE_URL = 'https://api.github.com'
 
@@ -98,7 +99,10 @@ const fetchPlans = async (repositoryInput, options = {}) => {
   }
 
   const candidateFiles = listing.filter(
-    (entry) => entry.type === 'file' && MARKDOWN_FILE_PATTERN.test(entry.name),
+    (entry) =>
+      entry.type === 'file' &&
+      MARKDOWN_FILE_PATTERN.test(entry.name) &&
+      entry.name.toLowerCase() !== TEMPLATE_FILENAME,
   )
 
   const files = []
