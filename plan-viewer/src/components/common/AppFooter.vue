@@ -23,9 +23,13 @@ const currentYear = new Date().getFullYear()
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.35rem 0.85rem;
+  gap: 0.4rem 0.85rem;
   align-items: center;
   font-size: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 1rem;
+  padding: 0.65rem 0.85rem;
+  background: color-mix(in srgb, var(--surface-2) 92%, transparent);
 }
 
 .app-footer__tagline {
@@ -40,6 +44,12 @@ const currentYear = new Date().getFullYear()
 
 .app-footer__meta a {
   color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 65%, transparent);
+}
+
+.app-footer__meta a:hover {
+  border-bottom-color: var(--border-strong);
 }
 
 @media (max-width: 700px) {

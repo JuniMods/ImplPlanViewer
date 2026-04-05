@@ -167,12 +167,18 @@ applyInitialRepositoryFromUrl()
 <style scoped>
 .app-header {
   position: sticky;
-  top: 0;
-  z-index: 10;
+  top: 0.35rem;
+  z-index: 30;
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
   align-items: center;
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  border-radius: 1rem;
+  padding: 0.65rem 0.8rem;
+  background: color-mix(in srgb, var(--surface-glass) 85%, transparent);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--accent-glow) 52%, transparent);
 }
 
 .app-header__brand {
@@ -184,21 +190,23 @@ applyInitialRepositoryFromUrl()
 }
 
 .app-header__logo {
-  width: 1.9rem;
-  height: 1.9rem;
-  border-radius: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.6rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 700;
   color: #fff;
-  background: var(--accent);
+  background: var(--gradient-primary);
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--accent) 34%, transparent);
 }
 
 .app-header__title {
-  font-size: 1rem;
+  font-size: 1.02rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .app-header__nav {
@@ -211,23 +219,34 @@ applyInitialRepositoryFromUrl()
 .app-header__source-link {
   color: var(--text-h);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 999px;
+  padding: 0.3rem 0.6rem;
+  background: color-mix(in srgb, var(--surface-2) 90%, transparent);
+}
+
+.app-header__nav-link:hover,
+.app-header__source-link:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent);
 }
 
 .app-header__controls {
   margin-left: auto;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
   min-width: min(100%, 44rem);
 }
 
 .app-header__search {
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  padding: 0.45rem 0.6rem;
-  background: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--border) 76%, transparent);
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.7rem;
+  background: color-mix(in srgb, var(--surface-2) 90%, transparent);
   color: var(--text-h);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #ffffff 42%, transparent);
 }
 
 .app-header__search {
@@ -235,9 +254,9 @@ applyInitialRepositoryFromUrl()
 }
 
 .app-header__search-toggle {
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  background: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--surface-2) 90%, transparent);
   color: var(--text-h);
   cursor: pointer;
   width: 2.15rem;
@@ -247,6 +266,11 @@ applyInitialRepositoryFromUrl()
   justify-content: center;
 }
 
+.app-header__search-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+}
+
 .app-header__search-toggle {
   display: none;
 }
@@ -254,6 +278,7 @@ applyInitialRepositoryFromUrl()
 @media (max-width: 860px) {
   .app-header {
     align-items: flex-start;
+    top: 0;
   }
 
   .app-header__controls {

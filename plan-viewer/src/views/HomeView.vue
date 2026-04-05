@@ -170,7 +170,7 @@ watch(
 
 <style scoped>
 .home-view {
-  padding: 1rem;
+  padding: 0.25rem;
   display: grid;
   gap: 1rem;
 }
@@ -180,16 +180,27 @@ watch(
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1rem;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 1rem;
+  padding: 1rem 1.1rem;
+  background: var(--gradient-surface), color-mix(in srgb, var(--surface-2) 92%, transparent);
+  box-shadow: var(--shadow-sm);
 }
 
 .home-view__title {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: clamp(1.45rem, 3.2vw, 2.1rem);
+  letter-spacing: -0.02em;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .home-view__subtitle {
-  margin: 0.25rem 0 0;
+  margin: 0.35rem 0 0;
   color: var(--text-m, var(--text));
+  max-width: 56ch;
 }
 
 .home-view__header-controls {
@@ -201,11 +212,11 @@ watch(
 
 .home-view__error {
   margin: 0;
-  border: 1px solid color-mix(in srgb, #ef4444 45%, var(--border));
-  border-radius: 0.5rem;
-  padding: 0.6rem 0.75rem;
+  border: 1px solid color-mix(in srgb, #ef4444 35%, var(--border));
+  border-radius: 0.75rem;
+  padding: 0.7rem 0.8rem;
   color: color-mix(in srgb, #ef4444 78%, var(--text-h));
-  background: color-mix(in srgb, #ef4444 8%, transparent);
+  background: color-mix(in srgb, #ef4444 10%, transparent);
 }
 
 .home-view__loading {
@@ -216,7 +227,7 @@ watch(
 .home-view__content {
   display: grid;
   gap: 1rem;
-  grid-template-columns: minmax(0, 17rem) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
   align-items: start;
 }
 

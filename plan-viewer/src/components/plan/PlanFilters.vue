@@ -285,12 +285,13 @@ onMounted(() => {
 
 <style scoped>
 .plan-filters {
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 1rem;
   padding: 1rem;
-  background: color-mix(in srgb, var(--bg) 96%, var(--border));
+  background: var(--gradient-surface), color-mix(in srgb, var(--surface-2) 92%, transparent);
   display: grid;
   gap: 1rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .plan-filters__header {
@@ -315,8 +316,25 @@ onMounted(() => {
   justify-content: center;
   font-size: 0.8rem;
   font-weight: 600;
-  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  background: var(--gradient-primary);
+  color: #fff;
+  box-shadow: 0 8px 16px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+.plan-filters__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.plan-filters__chip {
+  border: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   color: var(--text-h);
+  padding: 0.27rem 0.62rem;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 
 .plan-filters__group {
@@ -331,26 +349,11 @@ onMounted(() => {
   color: var(--text-h);
 }
 
-.plan-filters__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.plan-filters__chip {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--bg);
-  color: var(--text);
-  padding: 0.25rem 0.6rem;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
 .plan-filters__chip--active {
-  border-color: var(--accent);
+  border-color: var(--border-strong);
   color: var(--text-h);
-  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent);
 }
 
 .plan-filters__scope-input-row {
@@ -361,10 +364,10 @@ onMounted(() => {
 .plan-filters__input {
   flex: 1;
   min-width: 0;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  padding: 0.4rem 0.55rem;
-  background: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
+  border-radius: 0.7rem;
+  padding: 0.44rem 0.6rem;
+  background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   color: var(--text-h);
 }
 
@@ -384,11 +387,11 @@ onMounted(() => {
 }
 
 .plan-filters__action {
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  padding: 0.35rem 0.7rem;
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  border-radius: 0.7rem;
+  padding: 0.38rem 0.72rem;
   font-size: 0.8rem;
-  background: var(--bg);
+  background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   color: var(--text-h);
   cursor: pointer;
 }
@@ -396,6 +399,11 @@ onMounted(() => {
 .plan-filters__action:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.plan-filters__action:not(:disabled):hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
 }
 
 .plan-filters__action--clear {

@@ -162,22 +162,43 @@ const onKeydown = (event: KeyboardEvent) => {
 
 <style scoped>
 .plan-card {
-  border: 1px solid var(--border);
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
   border-left-width: 4px;
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   padding: 1rem;
-  background: var(--bg);
+  background: var(--gradient-surface), color-mix(in srgb, var(--surface-1) 94%, transparent);
   display: grid;
   gap: 0.75rem;
   text-align: left;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+  overflow: hidden;
+}
+
+.plan-card::before {
+  content: '';
+  position: absolute;
+  inset: -45% auto auto -10%;
+  width: 54%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 68%);
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.78;
 }
 
 .plan-card:hover,
 .plan-card:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--accent-glow) 46%, transparent);
+  border-color: var(--border-strong);
+}
+
+.plan-card:hover::before,
+.plan-card:focus-visible::before {
+  transform: translate(10%, -4%) scale(1.08);
+  opacity: 1;
 }
 
 .plan-card:focus-visible {
@@ -203,13 +224,15 @@ const onKeydown = (event: KeyboardEvent) => {
   margin: 0;
   color: var(--text-m, var(--text));
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .plan-card__title {
   margin: 0;
   color: var(--text-h);
-  font-size: 1rem;
+  font-size: 1.04rem;
   font-weight: 650;
   line-height: 1.35;
   display: -webkit-box;
@@ -222,7 +245,7 @@ const onKeydown = (event: KeyboardEvent) => {
   margin: 0;
   color: var(--text);
   font-size: 0.9rem;
-  line-height: 1.45;
+  line-height: 1.52;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -241,14 +264,15 @@ const onKeydown = (event: KeyboardEvent) => {
   min-width: 0;
   height: 0.45rem;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--border) 78%, transparent);
+  background: color-mix(in srgb, var(--border) 68%, transparent);
   overflow: hidden;
 }
 
 .plan-card__progress-fill {
   height: 100%;
   border-radius: inherit;
-  background: color-mix(in srgb, var(--accent) 70%, #ffffff);
+  background: var(--gradient-secondary);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 36%, transparent);
 }
 
 .plan-card__progress-value,

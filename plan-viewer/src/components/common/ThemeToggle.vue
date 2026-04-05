@@ -44,9 +44,9 @@ const themeDetails = computed(() => {
 
 <style scoped>
 .theme-toggle {
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  background: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--border) 76%, transparent);
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   color: var(--text-h);
   cursor: pointer;
   width: 2.15rem;
@@ -54,5 +54,11 @@ const themeDetails = computed(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #ffffff 40%, transparent);
+}
+
+.theme-toggle:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
 }
 </style>

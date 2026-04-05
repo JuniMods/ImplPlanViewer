@@ -90,5 +90,25 @@ const onClearFilters = (): void => {
 
 .plan-grid__item {
   min-width: 0;
+  animation: plan-card-enter 360ms ease-out both;
+}
+
+.plan-grid__item:nth-child(2n) {
+  animation-delay: 40ms;
+}
+
+.plan-grid__item:nth-child(3n) {
+  animation-delay: 80ms;
+}
+
+@keyframes plan-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

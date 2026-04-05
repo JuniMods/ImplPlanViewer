@@ -24,4 +24,16 @@
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  /* Surface tokens */
+  --surface-1: color-mix(in srgb, var(--bg) 88%, white);
+  --surface-2: color-mix(in srgb, var(--bg) 80%, #ffffff);
+  --surface-glass: color-mix(in srgb, var(--bg) 78%, #ffffff);
+  --border-strong: color-mix(in srgb, var(--border) 62%, var(--accent));
+  --accent-soft: color-mix(in srgb, var(--accent) 18%, transparent);
+  --accent-glow: color-mix(in srgb, var(--accent) 30%, transparent);
+  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #06b6d4 45%, #22c55e 100%);
+  --gradient-secondary: linear-gradient(145deg, color-mix(in srgb, var(--accent) 45%, #0ea5e9), color-mix(in srgb, #22c55e 52%, #0ea5e9));
+  --gradient-surface: radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 14%, transparent), transparent 45%),
+    radial-gradient(circle at bottom right, color-mix(in srgb, #22c55e 12%, transparent), transparent 48%);
 }

@@ -109,12 +109,13 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .plan-search {
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  border-radius: 1rem;
   padding: 0.85rem 1rem;
-  background: color-mix(in srgb, var(--bg) 96%, var(--border));
+  background: var(--gradient-surface), color-mix(in srgb, var(--surface-2) 92%, transparent);
   display: grid;
   gap: 0.55rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .plan-search__input-wrapper {
@@ -131,21 +132,26 @@ onBeforeUnmount(() => {
 .plan-search__input {
   flex: 1;
   min-width: 0;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  padding: 0.45rem 0.55rem;
-  background: var(--bg);
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  border-radius: 0.7rem;
+  padding: 0.5rem 0.65rem;
+  background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   color: var(--text-h);
 }
 
 .plan-search__clear {
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
+  border-radius: 0.7rem;
   padding: 0.35rem 0.6rem;
   font-size: 0.8rem;
-  background: var(--bg);
+  background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   color: var(--text-h);
   cursor: pointer;
+}
+
+.plan-search__clear:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
 }
 
 .plan-search__meta {
@@ -161,11 +167,11 @@ onBeforeUnmount(() => {
 }
 
 .plan-search__shortcut {
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
   border-radius: 0.4rem;
   padding: 0.15rem 0.4rem;
   font-size: 0.75rem;
   color: var(--text-h);
-  background: var(--bg);
+  background: color-mix(in srgb, var(--surface-1) 90%, transparent);
 }
 </style>

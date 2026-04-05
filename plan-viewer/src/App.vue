@@ -55,12 +55,20 @@ useTheme({
   min-height: 100svh;
   display: flex;
   flex-direction: column;
+  width: min(1320px, calc(100% - 1.5rem));
+  margin: 0 auto;
+  border-left: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+  border-right: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 72%, transparent), color-mix(in srgb, var(--surface) 80%, transparent));
+  backdrop-filter: blur(12px);
 }
 
 .app-layout__header,
 .app-layout__footer {
-  border-block: 1px solid var(--border);
-  padding: 0.75rem 1rem;
+  border-block: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+  padding: 0.9rem 1.2rem;
+  background: color-mix(in srgb, var(--surface-glass) 94%, transparent);
+  backdrop-filter: blur(14px);
 }
 
 .app-layout__title {
@@ -71,6 +79,7 @@ useTheme({
 .app-layout__main {
   flex: 1;
   min-height: 0;
+  padding: 1rem 1.2rem 1.35rem;
 }
 
 .app-layout__skip-link {
@@ -83,9 +92,24 @@ useTheme({
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   padding: 0.45rem 0.65rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .app-layout__skip-link:focus-visible {
   left: 0.75rem;
+}
+
+@media (max-width: 860px) {
+  .app-layout {
+    width: 100%;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .app-layout__header,
+  .app-layout__footer,
+  .app-layout__main {
+    padding-inline: 0.9rem;
+  }
 }
 </style>

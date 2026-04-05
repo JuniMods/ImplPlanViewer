@@ -1,12 +1,13 @@
 :root {
-  --text: #2b2533;
-  --text-h: #16121d;
-  --text-m: #645c70;
-  --bg: #ffffff;
-  --surface: #f8f7fb;
-  --border: #d7d4de;
-  --code-bg: #efedf4;
-  --focus-ring: #6d28d9;
+  --text: #1f1b2b;
+  --text-h: #120f1f;
+  --text-m: #5f5a72;
+  --bg: #f2f4ff;
+  --surface: #fcfcff;
+  --border: #d4d8ea;
+  --code-bg: #eceffd;
+  --accent: #7c3aed;
+  --focus-ring: #8b5cf6;
 
   color-scheme: light dark;
   font-family: var(--font-family-base);
@@ -19,13 +20,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #e4deef;
-    --text-h: #f6f2ff;
-    --text-m: #b8aec7;
-    --bg: #17141d;
-    --surface: #221e2b;
-    --border: #3f374e;
-    --code-bg: #2a2535;
+    --text: #dfdef3;
+    --text-h: #f5f4ff;
+    --text-m: #aeaac6;
+    --bg: #0e1223;
+    --surface: #161b31;
+    --border: #2d3555;
+    --code-bg: #1b2340;
+    --accent: #8b5cf6;
     --focus-ring: #a78bfa;
   }
 }
@@ -46,6 +48,11 @@ body {
   margin: 0;
   color: var(--text);
   background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 42%),
+    radial-gradient(circle at 80% 0%, color-mix(in srgb, #06b6d4 14%, transparent), transparent 36%),
+    radial-gradient(circle at 60% 90%, color-mix(in srgb, #22c55e 12%, transparent), transparent 40%);
+  background-attachment: fixed;
 }
 
 h1,
@@ -78,6 +85,7 @@ canvas {
 
 a {
   color: inherit;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
 }
 
 button,
@@ -86,6 +94,19 @@ select,
 textarea {
   font: inherit;
   color: inherit;
+}
+
+button,
+input,
+select,
+textarea,
+[role='button'] {
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast),
+    color var(--transition-fast);
 }
 
 h1,
@@ -114,6 +135,11 @@ code {
 :focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--text-h);
 }
 
 .sr-only {
