@@ -49,37 +49,38 @@ const normalizedSkeletonLines = computed(() =>
 .loading-spinner {
   display: grid;
   justify-items: center;
-  gap: 0.75rem;
-  color: var(--text-h);
+  gap: var(--space-3);
+  color: var(--color-text-primary);
+  padding: var(--space-6);
 }
 
 .loading-spinner__indicator {
-  width: 2rem;
-  height: 2rem;
-  border: 0.22rem solid var(--border);
-  border-top-color: var(--accent);
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-gray-200);
+  border-top-color: var(--color-primary);
   border-radius: 50%;
-  animation: loading-spinner-rotate 0.8s linear infinite;
+  animation: loading-spinner-rotate 0.75s linear infinite;
 }
 
 .loading-spinner__skeleton {
   display: grid;
-  gap: 0.45rem;
-  width: min(100%, 24rem);
+  gap: var(--space-2);
+  width: min(100%, 384px);
 }
 
 .loading-spinner__skeleton-line {
-  height: 0.85rem;
+  height: 14px;
   width: var(--line-width);
-  border-radius: 0.2rem;
-  background: color-mix(in srgb, var(--code-bg) 84%, var(--border));
+  border-radius: var(--radius-sm);
+  background: var(--color-gray-100);
   animation: loading-spinner-shimmer 1.2s ease-in-out infinite;
 }
 
 .loading-spinner__label {
   margin: 0;
-  font-size: 0.9rem;
-  color: var(--text);
+  font-size: var(--text-body);
+  color: var(--color-text-secondary);
 }
 
 @keyframes loading-spinner-rotate {
@@ -89,12 +90,23 @@ const normalizedSkeletonLines = computed(() =>
 }
 
 @keyframes loading-spinner-shimmer {
-  0% {
-    background-position: 100% 0;
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner__indicator {
+    animation: none;
+    border-top-color: var(--color-primary);
   }
 
-  100% {
-    background-position: 0 0;
+  .loading-spinner__skeleton-line {
+    animation: none;
   }
 }
 </style>

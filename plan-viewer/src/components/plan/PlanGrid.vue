@@ -73,7 +73,7 @@ const onClearFilters = (): void => {
   list-style: none;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 1rem;
+  gap: var(--card-gap);
 }
 
 @media (min-width: 768px) {

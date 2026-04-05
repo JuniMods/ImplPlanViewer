@@ -55,59 +55,67 @@ useTheme({
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  width: min(1320px, calc(100% - 1.5rem));
+  max-width: var(--container-width-wide);
   margin: 0 auto;
-  border-left: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
-  border-right: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
-  background: color-mix(in srgb, var(--surface) 96%, var(--bg));
+  background: var(--color-bg-primary);
 }
 
 .app-layout__header,
 .app-layout__footer {
-  border-block: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
-  padding: 1rem 1.25rem;
-  background: color-mix(in srgb, var(--surface-glass) 98%, transparent);
+  background: var(--color-white);
+}
+
+.app-layout__header {
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.app-layout__footer {
+  border-top: 1px solid var(--color-gray-200);
 }
 
 .app-layout__title {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: var(--text-h2);
+  font-weight: var(--font-weight-semibold);
 }
 
 .app-layout__main {
   flex: 1;
   min-height: 0;
-  padding: 1.25rem 1.25rem 1.5rem;
+  padding: var(--space-6);
 }
 
 .app-layout__skip-link {
   position: absolute;
   left: -9999px;
-  top: 0.5rem;
-  z-index: 100;
-  background: var(--bg);
-  color: var(--text-h);
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  padding: 0.45rem 0.65rem;
+  top: var(--space-2);
+  z-index: var(--z-raised);
+  background: var(--color-white);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-default);
+  padding: var(--space-2) var(--space-3);
   box-shadow: var(--shadow-sm);
+  font-size: var(--text-body-small);
+  text-decoration: none;
 }
 
 .app-layout__skip-link:focus-visible {
-  left: 0.75rem;
+  left: var(--space-3);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   .app-layout {
     width: 100%;
-    border-left: 0;
-    border-right: 0;
+  }
+
+  .app-layout__main {
+    padding: var(--space-4);
   }
 
   .app-layout__header,
-  .app-layout__footer,
-  .app-layout__main {
-    padding-inline: 0.9rem;
+  .app-layout__footer {
+    padding-inline: var(--space-4);
   }
 }
 </style>

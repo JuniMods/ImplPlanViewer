@@ -57,15 +57,17 @@ const onClear = (): void => {
 <style scoped>
 .empty-state {
   margin: 0;
-  border: 1px dashed var(--border);
-  border-radius: 0.75rem;
-  padding: 1.25rem;
+  border: 1px dashed var(--color-gray-300);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
   text-align: center;
-  color: var(--text-m, var(--text));
-  background: color-mix(in srgb, var(--bg) 94%, var(--border));
+  color: var(--color-text-secondary);
+  background: var(--color-gray-50);
   display: grid;
-  gap: 0.75rem;
+  gap: var(--space-3);
   justify-items: center;
+  min-height: 240px;
+  place-content: center;
 }
 
 .empty-state__title,
@@ -74,16 +76,38 @@ const onClear = (): void => {
 }
 
 .empty-state__title {
-  color: var(--text-h, var(--text));
+  color: var(--color-text-primary);
+  font-size: var(--text-h2);
+  font-weight: var(--font-weight-semibold);
+}
+
+.empty-state__message {
+  font-size: var(--text-body);
+  max-width: 480px;
 }
 
 .empty-state__action {
-  border: 1px solid var(--border);
-  border-radius: 0.35rem;
-  padding: 0.35rem 0.9rem;
-  background: var(--bg);
-  color: var(--text-h, var(--text));
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-default);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-white);
+  color: var(--color-text-primary);
   cursor: pointer;
   font: inherit;
+  font-size: var(--text-body-small);
+  font-weight: var(--font-weight-medium);
+  transition:
+    background-color calc(var(--transition-fast) * 1ms) var(--ease-out),
+    border-color calc(var(--transition-fast) * 1ms) var(--ease-out);
+}
+
+.empty-state__action:hover {
+  background: var(--color-gray-50);
+  border-color: var(--color-gray-400);
+}
+
+.empty-state__action:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 </style>

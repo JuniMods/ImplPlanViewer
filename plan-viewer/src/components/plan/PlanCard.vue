@@ -162,32 +162,37 @@ const onKeydown = (event: KeyboardEvent) => {
 
 <style scoped>
 .plan-card {
-  border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
+  border: 1px solid var(--color-gray-200);
   border-left-width: 4px;
-  border-radius: 0.5rem;
-  padding: 1.1rem;
-  background: color-mix(in srgb, var(--surface-1) 96%, transparent);
+  border-radius: var(--radius-md);
+  padding: var(--card-padding-default);
+  background: var(--color-white);
   display: grid;
-  gap: 0.95rem;
+  gap: var(--space-3);
   text-align: left;
   cursor: pointer;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow calc(var(--transition-normal) * 1ms) var(--ease-out),
+    border-color calc(var(--transition-normal) * 1ms) var(--ease-out),
+    transform calc(var(--transition-normal) * 1ms) var(--ease-out);
 }
 
 .plan-card:hover,
 .plan-card:focus-visible {
   box-shadow: var(--shadow-md);
-  border-color: var(--border-strong);
+  border-color: var(--color-gray-300);
+  transform: translateY(-2px);
 }
 
 .plan-card:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 .plan-card--compact {
-  gap: 0.5rem;
-  padding: 0.75rem;
+  gap: var(--space-2);
+  padding: var(--card-padding-compact);
 }
 
 .plan-card__header,
@@ -196,24 +201,24 @@ const onKeydown = (event: KeyboardEvent) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: var(--space-2);
 }
 
 .plan-card__number {
   margin: 0;
-  color: var(--text-m, var(--text));
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  color: var(--color-gray-500);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-caption);
+  letter-spacing: var(--letter-spacing-wider);
   text-transform: uppercase;
 }
 
 .plan-card__title {
   margin: 0;
-  color: var(--text-h);
-  font-size: 1.04rem;
-  font-weight: 650;
-  line-height: 1.35;
+  color: var(--color-text-primary);
+  font-size: var(--text-h3);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-h3);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -222,46 +227,54 @@ const onKeydown = (event: KeyboardEvent) => {
 
 .plan-card__objective {
   margin: 0;
-  color: var(--text);
-  font-size: 0.9rem;
-  line-height: 1.52;
+  color: var(--color-text-secondary);
+  font-size: var(--text-body-small);
+  line-height: var(--line-height-body-small);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 2.6em;
+  min-height: calc(var(--line-height-body-small) * 2);
 }
 
 .plan-card__badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: var(--space-2);
 }
 
 .plan-card__progress-track {
   flex: 1;
   min-width: 0;
-  height: 0.45rem;
-  border-radius: 0.2rem;
-  background: color-mix(in srgb, var(--border) 68%, transparent);
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-gray-200);
   overflow: hidden;
 }
 
 .plan-card__progress-fill {
   height: 100%;
   border-radius: inherit;
-  background: color-mix(in srgb, var(--accent) 72%, #2d4a86);
+  background: var(--color-primary);
+  transition: width calc(var(--transition-moderate) * 1ms) var(--ease-out);
 }
 
-.plan-card__progress-value,
+.plan-card__progress-value {
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-600);
+  min-width: 40px;
+  text-align: right;
+}
+
 .plan-card__repository,
 .plan-card__date {
-  font-size: 0.8rem;
-  color: var(--text-m, var(--text));
+  font-size: var(--text-caption);
+  color: var(--color-gray-500);
 }
 
 .plan-card__meta {
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
 .plan-card__repository,
@@ -280,24 +293,40 @@ const onKeydown = (event: KeyboardEvent) => {
   flex-shrink: 0;
 }
 
+/* Type color indicators */
 .plan-card--plan-feature {
-  border-left-color: #22c55e;
+  border-left-color: var(--color-success);
 }
 
 .plan-card--plan-enhancement {
-  border-left-color: #0ea5e9;
+  border-left-color: var(--color-primary);
 }
 
 .plan-card--plan-bug {
-  border-left-color: #f97316;
+  border-left-color: var(--color-error);
 }
 
 .plan-card--plan-refactor {
-  border-left-color: #8b5cf6;
+  border-left-color: var(--color-warning);
 }
 
 .plan-card--plan-chore,
 .plan-card--grey {
-  border-left-color: #9ca3af;
+  border-left-color: var(--color-gray-400);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .plan-card {
+    transition: none;
+  }
+
+  .plan-card:hover {
+    transform: none;
+  }
+
+  .plan-card__progress-fill {
+    transition: none;
+  }
 }
 </style>

@@ -83,41 +83,63 @@ onErrorCaptured((error) => {
 .error-boundary__fallback {
   display: grid;
   justify-items: center;
-  gap: 0.6rem;
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  padding: 1.5rem 1rem;
-  margin: 1rem;
+  gap: var(--space-3);
+  border: 1px solid var(--color-error-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-4);
+  margin: var(--space-4);
   text-align: center;
-  background: var(--code-bg);
+  background: var(--color-error-light);
+  color: var(--color-error);
 }
 
 .error-boundary__title {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: var(--text-h3);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-error);
 }
 
 .error-boundary__description {
-  color: var(--text);
+  margin: 0;
+  color: var(--color-gray-700);
+  font-size: var(--text-body);
 }
 
 .error-boundary__details {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--text-h);
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-body-small);
+  color: var(--color-error);
+  background: var(--color-white);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .error-boundary__reset {
-  border: 1px solid var(--accent-border);
-  background: var(--accent-bg);
-  color: var(--accent);
-  border-radius: 0.5rem;
-  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--color-error);
+  background: var(--color-white);
+  color: var(--color-error);
+  border-radius: var(--radius-default);
+  padding: var(--space-2) var(--space-4);
   font: inherit;
+  font-size: var(--text-body-small);
+  font-weight: var(--font-weight-medium);
   cursor: pointer;
+  transition:
+    background-color calc(var(--transition-fast) * 1ms) var(--ease-out),
+    border-color calc(var(--transition-fast) * 1ms) var(--ease-out);
 }
 
 .error-boundary__reset:hover {
-  border-color: var(--accent);
+  background: var(--color-error);
+  color: var(--color-white);
+}
+
+.error-boundary__reset:focus-visible {
+  outline: 2px solid var(--color-error);
+  outline-offset: 2px;
 }
 </style>

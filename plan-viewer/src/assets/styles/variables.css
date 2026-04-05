@@ -1,34 +1,46 @@
+/**
+ * Legacy variables.css - kept for backward compatibility
+ * New code should use design-tokens.css
+ * 
+ * This file maps old variable names to new design token names
+ * to prevent breaking existing components during migration.
+ */
+
 :root {
-  /* Typography */
-  --font-family-base: 'Roboto', sans-serif;
-  --font-family-mono: 'Roboto Mono', monospace;
+  /* Legacy typography mappings */
+  --font-family-base: var(--font-primary);
+  --font-family-mono: var(--font-mono);
 
-  /* Spacing */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
+  /* Legacy spacing mappings */
+  --spacing-xs: var(--space-1);
+  --spacing-sm: var(--space-2);
+  --spacing-md: var(--space-4);
+  --spacing-lg: var(--space-6);
+  --spacing-xl: var(--space-8);
 
-  /* Borders */
-  --border-radius-sm: 4px;
-  --border-radius-md: 8px;
-  --border-radius-lg: 12px;
+  /* Legacy border radius mappings */
+  --border-radius-sm: var(--radius-sm);
+  --border-radius-md: var(--radius-md);
+  --border-radius-lg: var(--radius-lg);
 
-  /* Transitions */
-  --transition-fast: 150ms ease-in-out;
-  --transition-normal: 300ms ease-in-out;
-  --transition-slow: 500ms ease-in-out;
+  /* Legacy transition mappings */
+  --transition-fast: calc(var(--transition-normal) * 1ms) var(--ease-in-out);
+  --transition-normal: calc(var(--transition-slow) * 1ms) var(--ease-in-out);
+  --transition-slow: calc(var(--transition-slower) * 1ms) var(--ease-in-out);
 
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Legacy shadow mappings */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
 
-  /* Surface tokens */
-  --surface-1: color-mix(in srgb, var(--bg) 88%, white);
-  --surface-2: color-mix(in srgb, var(--bg) 80%, #ffffff);
-  --surface-glass: color-mix(in srgb, var(--bg) 86%, #ffffff);
-  --border-strong: color-mix(in srgb, var(--border) 62%, var(--accent));
-  --accent-soft: color-mix(in srgb, var(--accent) 18%, transparent);
+  /* Legacy surface and color mappings */
+  --bg: var(--color-bg-primary);
+  --surface: var(--color-white);
+  --border: var(--color-border);
+  --accent: var(--color-primary);
+  --focus-ring: var(--color-primary);
+  --text: var(--color-text-primary);
+  --text-h: var(--color-text-primary);
+  --text-m: var(--color-text-secondary);
+  --code-bg: var(--color-gray-100);
 }

@@ -52,12 +52,14 @@ const badgeStyle = computed<BadgeStyle>(() => {
   display: inline-flex;
   align-items: center;
   border: 1px solid transparent;
-  border-radius: 0.3rem;
-  padding: 0.15rem 0.6rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-2);
+  height: 22px;
+  font-size: var(--text-overline);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
 }
 
 .plan-badge--tonal {
@@ -68,60 +70,64 @@ const badgeStyle = computed<BadgeStyle>(() => {
   background: transparent;
 }
 
+/* Type badges */
 .plan-badge--plan-feature {
-  color: #05603a;
-  background: #d9fbe8;
+  color: var(--color-success);
+  background: var(--color-success-light);
 }
 
 .plan-badge--plan-enhancement {
-  color: #075985;
-  background: #d9f0ff;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
 }
 
 .plan-badge--plan-bug {
-  color: #9a3412;
-  background: #ffe4d6;
+  color: var(--color-error);
+  background: var(--color-error-light);
 }
 
 .plan-badge--plan-refactor {
-  color: #6d28d9;
-  background: #ede2ff;
+  color: var(--color-warning);
+  background: var(--color-warning-light);
 }
 
 .plan-badge--plan-chore {
-  color: #374151;
-  background: #e5e7eb;
+  color: var(--color-gray-700);
+  background: var(--color-gray-100);
 }
 
+/* Priority badges */
 .plan-badge--priority-critical {
-  color: #991b1b;
-  background: #fee2e2;
+  color: var(--color-error);
+  background: var(--color-error-light);
 }
 
 .plan-badge--priority-high {
-  color: #9a3412;
-  background: #ffedd5;
+  color: var(--color-warning);
+  background: var(--color-warning-light);
 }
 
 .plan-badge--priority-medium {
-  color: #92400e;
-  background: #fef3c7;
+  color: var(--color-info);
+  background: var(--color-info-light);
 }
 
 .plan-badge--priority-low {
-  color: #166534;
-  background: #dcfce7;
+  color: var(--color-success);
+  background: var(--color-success-light);
 }
 
+/* Scope badge */
 .plan-badge--plan-scope {
-  color: #1d4ed8;
-  border-color: #bfdbfe;
-  background: rgba(191, 219, 254, 0.22);
+  color: var(--color-primary);
+  border-color: var(--color-primary-light);
+  background: var(--color-primary-light);
 }
 
+/* Grey/Unknown */
 .plan-badge--grey {
-  color: #4b5563;
-  border-color: #d1d5db;
-  background: rgba(209, 213, 219, 0.25);
+  color: var(--color-gray-600);
+  border-color: var(--color-gray-200);
+  background: var(--color-gray-100);
 }
 </style>

@@ -3,9 +3,20 @@ import { createVuetify } from 'vuetify'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 import 'vuetify/styles'
 import '@mdi/font/css/materialdesignicons.css'
+
+// Import Google Fonts (Inter and JetBrains Mono)
+import '@fontsource/inter/400.css'
+import '@fontsource/inter/500.css'
+import '@fontsource/inter/600.css'
+import '@fontsource/inter/700.css'
+import '@fontsource/jetbrains-mono/400.css'
+
+// Import styles (design tokens must come first)
+import './assets/styles/design-tokens.css'
 import './assets/styles/variables.css'
 import './assets/styles/global.css'
 import './assets/styles/responsive.css'
+
 import App from './App.vue'
 import router from './router'
 import { initializeStoresFromBundledManifests } from './bootstrap/storeInitialization'

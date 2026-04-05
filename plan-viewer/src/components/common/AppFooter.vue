@@ -23,39 +23,43 @@ const currentYear = new Date().getFullYear()
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.4rem 0.85rem;
+  gap: var(--space-2) var(--space-3);
   align-items: center;
-  font-size: 0.85rem;
-  border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
-  border-radius: 0.5rem;
-  padding: 0.8rem 1rem;
-  background: color-mix(in srgb, var(--surface-2) 92%, transparent);
+  font-size: var(--text-body-small);
+  line-height: var(--line-height-body-small);
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-white);
+  border-top: 1px solid var(--color-gray-200);
 }
 
 .app-footer__tagline {
-  color: var(--text-h);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-regular);
 }
 
 .app-footer__meta {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-2);
+  color: var(--color-gray-600);
 }
 
 .app-footer__meta a {
-  color: inherit;
+  color: var(--color-primary);
   text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--border) 65%, transparent);
+  transition: color calc(var(--transition-fast) * 1ms) var(--ease-out);
 }
 
 .app-footer__meta a:hover {
-  border-bottom-color: var(--border-strong);
+  color: var(--color-primary-hover);
+  text-decoration: underline;
 }
 
 @media (max-width: 700px) {
   .app-footer {
     flex-direction: column;
     align-items: flex-start;
+    padding: var(--space-3) var(--space-4);
   }
 }
 </style>

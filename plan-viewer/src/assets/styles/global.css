@@ -1,35 +1,12 @@
 :root {
-  --text: #1f1b2b;
-  --text-h: #120f1f;
-  --text-m: #5f5a72;
-  --bg: #f2f4ff;
-  --surface: #fcfcff;
-  --border: #d4d8ea;
-  --code-bg: #eceffd;
-  --accent: #7c3aed;
-  --focus-ring: #8b5cf6;
-
   color-scheme: light dark;
-  font-family: var(--font-family-base);
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: var(--font-primary);
+  font-size: var(--text-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-regular);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #dfdef3;
-    --text-h: #f5f4ff;
-    --text-m: #aeaac6;
-    --bg: #0e1223;
-    --surface: #161b31;
-    --border: #2d3555;
-    --code-bg: #1b2340;
-    --accent: #8b5cf6;
-    --focus-ring: #a78bfa;
-  }
 }
 
 *,
@@ -46,8 +23,10 @@ body,
 
 body {
   margin: 0;
-  color: var(--text);
-  background-color: var(--bg);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  font-size: var(--text-body);
+  line-height: var(--line-height-body);
 }
 
 h1,
@@ -79,8 +58,17 @@ canvas {
 }
 
 a {
-  color: inherit;
-  transition: color var(--transition-fast), opacity var(--transition-fast);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color calc(var(--transition-fast) * 1ms) var(--ease-out);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+a:active {
+  color: var(--color-primary-active);
 }
 
 button,
@@ -97,11 +85,11 @@ select,
 textarea,
 [role='button'] {
   transition:
-    border-color var(--transition-fast),
-    background-color var(--transition-fast),
-    box-shadow var(--transition-fast),
-    transform var(--transition-fast),
-    color var(--transition-fast);
+    border-color calc(var(--transition-fast) * 1ms) var(--ease-out),
+    background-color calc(var(--transition-fast) * 1ms) var(--ease-out),
+    box-shadow calc(var(--transition-fast) * 1ms) var(--ease-out),
+    transform calc(var(--transition-normal) * 1ms) var(--ease-out),
+    color calc(var(--transition-fast) * 1ms) var(--ease-out);
 }
 
 h1,
@@ -110,8 +98,30 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--text-h);
-  line-height: 1.25;
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+h1 {
+  font-size: var(--text-h1);
+  line-height: var(--line-height-h1);
+  letter-spacing: var(--letter-spacing-narrow);
+}
+
+h2 {
+  font-size: var(--text-h2);
+  line-height: var(--line-height-h2);
+  letter-spacing: var(--letter-spacing-narrow);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  line-height: var(--line-height-h3);
+}
+
+h4 {
+  font-size: var(--text-h4);
+  line-height: var(--line-height-h4);
 }
 
 code,
@@ -122,19 +132,22 @@ samp {
 }
 
 code {
-  background: var(--code-bg);
-  border-radius: var(--border-radius-sm);
-  padding-inline: 0.25rem;
+  background: var(--color-gray-100);
+  border-radius: var(--radius-sm);
+  padding-inline: var(--space-1);
+  font-size: var(--text-code);
+  line-height: var(--line-height-code);
 }
 
 :focus-visible {
-  outline: 2px solid var(--focus-ring);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+  box-shadow: 0 0 0 3px var(--color-primary-light);
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--accent) 35%, transparent);
-  color: var(--text-h);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
 }
 
 .sr-only {
