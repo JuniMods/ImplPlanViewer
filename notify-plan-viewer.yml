@@ -1,0 +1,22 @@
+name: Notify ImplPlanViewer
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "implementation-plans/**"
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch plans_updated event
+        env:
+          PLAN_VIEWER_TOKEN: ${{ secrets.PLAN_VIEWER_TOKEN }}
+        run: |
+          curl -sS -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${PLAN_VIEWER_TOKEN}" \
+            https://api.github.com/repos/JuniMods/ImplPlanViewer/dispatches \
+            -d "{\"event_type\":\"plans_updated\",\"client_payload\":{\"repository\":\"${GITHUB_REPOSITORY}\"}}"

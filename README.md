@@ -280,12 +280,15 @@ So it will prefer `GH_PAT` for private org reads.
 
 ### 5) (Optional) Configure source repositories to push updates automatically
 
+This is optional because ImplPlanViewer can still be rebuilt manually from the Actions tab.
+Add this only if you want automatic rebuilds whenever plans change in source repositories.
+
 For each source repo in `JuniMods`:
 
 1. Ensure plans are in `implementation-plans/`.
 2. Add topic `impl-plan-viewer` (if using `topic` discovery).
-3. Add a secret named `PLAN_VIEWER_TOKEN` with permission to call repository dispatch on `JuniMods/ImplPlanViewer`.
-4. Add a workflow that triggers `repository_dispatch` to ImplPlanViewer when plans change.
+3. In the source repo, go to **Settings → Secrets and variables → Actions → New repository secret**, create `PLAN_VIEWER_TOKEN`, and set it to a PAT that can call `POST /repos/JuniMods/ImplPlanViewer/dispatches` (fine-grained token with access to `JuniMods/ImplPlanViewer`, or classic `repo` scope).
+4. Add a workflow that triggers `repository_dispatch` to ImplPlanViewer when plans change. You can copy this example from this repository: `notify-plan-viewer.yml` (save it in the source repo as `.github/workflows/notify-plan-viewer.yml`).
 
 ### 6) Verify end-to-end
 
