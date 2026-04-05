@@ -458,7 +458,7 @@ onBeforeUnmount(() => {
   display: inline-block;
   width: 0.8rem;
   height: 0.8rem;
-  border-radius: 999px;
+  border-radius: 0.15rem;
   border: 1px solid color-mix(in srgb, var(--bg) 75%, var(--border));
 }
 

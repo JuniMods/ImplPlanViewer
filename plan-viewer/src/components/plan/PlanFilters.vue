@@ -286,11 +286,11 @@ onMounted(() => {
 <style scoped>
 .plan-filters {
   border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
-  border-radius: 1rem;
-  padding: 1rem;
-  background: var(--gradient-surface), color-mix(in srgb, var(--surface-2) 92%, transparent);
+  border-radius: 0.5rem;
+  padding: 1.1rem;
+  background: color-mix(in srgb, var(--surface-2) 94%, transparent);
   display: grid;
-  gap: 1rem;
+  gap: 1.1rem;
   box-shadow: var(--shadow-sm);
 }
 
@@ -310,15 +310,14 @@ onMounted(() => {
 .plan-filters__count {
   min-width: 1.75rem;
   height: 1.75rem;
-  border-radius: 999px;
+  border-radius: 0.3rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 0.8rem;
   font-weight: 600;
-  background: var(--gradient-primary);
-  color: #fff;
-  box-shadow: 0 8px 16px color-mix(in srgb, var(--accent) 28%, transparent);
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: var(--text-h);
 }
 
 .plan-filters__chips {
@@ -329,7 +328,7 @@ onMounted(() => {
 
 .plan-filters__chip {
   border: 1px solid color-mix(in srgb, var(--border) 82%, transparent);
-  border-radius: 999px;
+  border-radius: 0.3rem;
   background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   color: var(--text-h);
   padding: 0.27rem 0.62rem;
@@ -353,7 +352,7 @@ onMounted(() => {
   border-color: var(--border-strong);
   color: var(--text-h);
   background: color-mix(in srgb, var(--accent) 18%, transparent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent);
+  box-shadow: none;
 }
 
 .plan-filters__scope-input-row {
@@ -365,7 +364,7 @@ onMounted(() => {
   flex: 1;
   min-width: 0;
   border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
-  border-radius: 0.7rem;
+  border-radius: 0.35rem;
   padding: 0.44rem 0.6rem;
   background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   color: var(--text-h);
@@ -388,8 +387,8 @@ onMounted(() => {
 
 .plan-filters__action {
   border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
-  border-radius: 0.7rem;
-  padding: 0.38rem 0.72rem;
+  border-radius: 0.35rem;
+  padding: 0.42rem 0.76rem;
   font-size: 0.8rem;
   background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   color: var(--text-h);
@@ -402,7 +401,6 @@ onMounted(() => {
 }
 
 .plan-filters__action:not(:disabled):hover {
-  transform: translateY(-1px);
   border-color: var(--border-strong);
 }
 

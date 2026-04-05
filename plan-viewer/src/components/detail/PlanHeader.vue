@@ -181,7 +181,7 @@ const copyLink = async (): Promise<void> => {
 
 .plan-header__repo-badge {
   border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
-  border-radius: 999px;
+  border-radius: 0.3rem;
   padding: 0.2rem 0.65rem;
   font-weight: 600;
 }

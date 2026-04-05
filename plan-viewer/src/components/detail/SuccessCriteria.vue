@@ -105,7 +105,7 @@ const progressLabel = computed(() =>
 
 .success-criteria__progressbar {
   height: 0.65rem;
-  border-radius: 999px;
+  border-radius: 0.2rem;
   background: color-mix(in srgb, var(--accent) 12%, var(--border));
   overflow: hidden;
 }
@@ -113,11 +113,7 @@ const progressLabel = computed(() =>
 .success-criteria__progressbar-fill {
   display: block;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--accent) 88%, white),
-    color-mix(in srgb, var(--accent) 65%, var(--text-h))
-  );
+  background: color-mix(in srgb, var(--accent) 74%, #2d4a86);
   transition: width 200ms ease-in-out;
 }
 

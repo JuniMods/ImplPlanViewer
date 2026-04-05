@@ -37,8 +37,8 @@ const lastUpdated = computed(() => formatDate(props.repository?.updatedAt))
 <style scoped>
 .repository-stats {
   border: 1px solid color-mix(in srgb, var(--border) 76%, transparent);
-  border-radius: 0.72rem;
-  padding: 0.38rem 0.62rem;
+  border-radius: 0.35rem;
+  padding: 0.45rem 0.75rem;
   min-height: 2.15rem;
   display: inline-flex;
   align-items: center;
@@ -49,7 +49,7 @@ const lastUpdated = computed(() => formatDate(props.repository?.updatedAt))
   margin: 0;
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.85rem;
 }
 
 .repository-stats__item {

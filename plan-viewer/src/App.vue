@@ -59,16 +59,14 @@ useTheme({
   margin: 0 auto;
   border-left: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
   border-right: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 72%, transparent), color-mix(in srgb, var(--surface) 80%, transparent));
-  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--surface) 96%, var(--bg));
 }
 
 .app-layout__header,
 .app-layout__footer {
   border-block: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
-  padding: 0.9rem 1.2rem;
-  background: color-mix(in srgb, var(--surface-glass) 94%, transparent);
-  backdrop-filter: blur(14px);
+  padding: 1rem 1.25rem;
+  background: color-mix(in srgb, var(--surface-glass) 98%, transparent);
 }
 
 .app-layout__title {
@@ -79,7 +77,7 @@ useTheme({
 .app-layout__main {
   flex: 1;
   min-height: 0;
-  padding: 1rem 1.2rem 1.35rem;
+  padding: 1.25rem 1.25rem 1.5rem;
 }
 
 .app-layout__skip-link {

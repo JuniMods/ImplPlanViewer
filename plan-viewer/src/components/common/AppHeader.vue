@@ -167,18 +167,17 @@ applyInitialRepositoryFromUrl()
 <style scoped>
 .app-header {
   position: sticky;
-  top: 0.35rem;
+  top: 0;
   z-index: 30;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1rem;
+  gap: 0.9rem 1.1rem;
   align-items: center;
   border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
-  border-radius: 1rem;
-  padding: 0.65rem 0.8rem;
-  background: color-mix(in srgb, var(--surface-glass) 85%, transparent);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 12px 28px color-mix(in srgb, var(--accent-glow) 52%, transparent);
+  border-radius: 0.5rem;
+  padding: 0.85rem 1rem;
+  background: color-mix(in srgb, var(--surface-glass) 98%, transparent);
+  box-shadow: var(--shadow-sm);
 }
 
 .app-header__brand {
@@ -190,17 +189,16 @@ applyInitialRepositoryFromUrl()
 }
 
 .app-header__logo {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.6rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 0.35rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 700;
   color: #fff;
-  background: var(--gradient-primary);
-  box-shadow: 0 8px 18px color-mix(in srgb, var(--accent) 34%, transparent);
+  background: var(--accent);
 }
 
 .app-header__title {
@@ -221,32 +219,31 @@ applyInitialRepositoryFromUrl()
   text-decoration: none;
   font-size: 0.85rem;
   border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
-  border-radius: 999px;
-  padding: 0.3rem 0.6rem;
+  border-radius: 0.35rem;
+  padding: 0.34rem 0.66rem;
   background: color-mix(in srgb, var(--surface-2) 90%, transparent);
 }
 
 .app-header__nav-link:hover,
 .app-header__source-link:hover {
   border-color: var(--border-strong);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent);
+  box-shadow: none;
 }
 
 .app-header__controls {
   margin-left: auto;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.75rem;
   min-width: min(100%, 44rem);
 }
 
 .app-header__search {
   border: 1px solid color-mix(in srgb, var(--border) 76%, transparent);
-  border-radius: 0.75rem;
-  padding: 0.5rem 0.7rem;
+  border-radius: 0.35rem;
+  padding: 0.52rem 0.75rem;
   background: color-mix(in srgb, var(--surface-2) 90%, transparent);
   color: var(--text-h);
-  box-shadow: inset 0 1px 0 color-mix(in srgb, #ffffff 42%, transparent);
 }
 
 .app-header__search {
@@ -255,7 +252,7 @@ applyInitialRepositoryFromUrl()
 
 .app-header__search-toggle {
   border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
-  border-radius: 0.75rem;
+  border-radius: 0.35rem;
   background: color-mix(in srgb, var(--surface-2) 90%, transparent);
   color: var(--text-h);
   cursor: pointer;
@@ -267,7 +264,6 @@ applyInitialRepositoryFromUrl()
 }
 
 .app-header__search-toggle:hover {
-  transform: translateY(-1px);
   border-color: var(--border-strong);
 }
 
@@ -278,7 +274,6 @@ applyInitialRepositoryFromUrl()
 @media (max-width: 860px) {
   .app-header {
     align-items: flex-start;
-    top: 0;
   }
 
   .app-header__controls {

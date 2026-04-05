@@ -406,13 +406,13 @@ const generatedAt = computed(() => normalizeString(planRecord.value?.generatedAt
 .plan-detail-view {
   padding: 0.25rem;
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .plan-detail-view__not-found {
   border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
-  border-radius: 1rem;
-  padding: 1rem;
+  border-radius: 0.5rem;
+  padding: 1.1rem;
   text-align: left;
   display: grid;
   gap: 0.55rem;
@@ -437,19 +437,19 @@ const generatedAt = computed(() => normalizeString(planRecord.value?.generatedAt
 
 .plan-detail-view__section-nav {
   border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
-  border-radius: 1rem;
-  padding: 0.7rem 0.85rem;
+  border-radius: 0.5rem;
+  padding: 0.8rem 0.95rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 0.8rem;
   background: color-mix(in srgb, var(--surface-2) 92%, transparent);
   box-shadow: var(--shadow-sm);
 }
 
 .plan-detail-view__section-nav a {
   border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
-  border-radius: 999px;
-  padding: 0.25rem 0.58rem;
+  border-radius: 0.3rem;
+  padding: 0.3rem 0.62rem;
   font-size: 0.84rem;
   background: color-mix(in srgb, var(--surface-1) 90%, transparent);
 }
@@ -466,10 +466,10 @@ const generatedAt = computed(() => normalizeString(planRecord.value?.generatedAt
 
 .plan-detail-view__intent-cards {
   display: grid;
-  gap: 0.7rem;
+  gap: 0.9rem;
   border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
-  border-radius: 1rem;
-  padding: 0.85rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
   background: color-mix(in srgb, var(--surface-2) 90%, transparent);
 }
 

@@ -120,11 +120,10 @@ watch(
 .repository-selector__input {
   width: 100%;
   border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
-  border-radius: 0.72rem;
-  padding: 0.48rem 0.68rem;
+  border-radius: 0.35rem;
+  padding: 0.52rem 0.75rem;
   background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   color: var(--text-h);
-  box-shadow: inset 0 1px 0 color-mix(in srgb, #ffffff 40%, transparent);
 }
 
 .repository-selector__input:hover {

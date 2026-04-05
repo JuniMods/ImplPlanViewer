@@ -27,8 +27,8 @@ const currentYear = new Date().getFullYear()
   align-items: center;
   font-size: 0.85rem;
   border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
-  border-radius: 1rem;
-  padding: 0.65rem 0.85rem;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1rem;
   background: color-mix(in srgb, var(--surface-2) 92%, transparent);
 }
 

@@ -162,43 +162,22 @@ const onKeydown = (event: KeyboardEvent) => {
 
 <style scoped>
 .plan-card {
-  position: relative;
   border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
   border-left-width: 4px;
-  border-radius: 1rem;
-  padding: 1rem;
-  background: var(--gradient-surface), color-mix(in srgb, var(--surface-1) 94%, transparent);
+  border-radius: 0.5rem;
+  padding: 1.1rem;
+  background: color-mix(in srgb, var(--surface-1) 96%, transparent);
   display: grid;
-  gap: 0.75rem;
+  gap: 0.95rem;
   text-align: left;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
-  overflow: hidden;
-}
-
-.plan-card::before {
-  content: '';
-  position: absolute;
-  inset: -45% auto auto -10%;
-  width: 54%;
-  aspect-ratio: 1;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 18%, transparent), transparent 68%);
-  pointer-events: none;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-  opacity: 0.78;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .plan-card:hover,
 .plan-card:focus-visible {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px color-mix(in srgb, var(--accent-glow) 46%, transparent);
+  box-shadow: var(--shadow-md);
   border-color: var(--border-strong);
-}
-
-.plan-card:hover::before,
-.plan-card:focus-visible::before {
-  transform: translate(10%, -4%) scale(1.08);
-  opacity: 1;
 }
 
 .plan-card:focus-visible {
@@ -263,7 +242,7 @@ const onKeydown = (event: KeyboardEvent) => {
   flex: 1;
   min-width: 0;
   height: 0.45rem;
-  border-radius: 999px;
+  border-radius: 0.2rem;
   background: color-mix(in srgb, var(--border) 68%, transparent);
   overflow: hidden;
 }
@@ -271,8 +250,7 @@ const onKeydown = (event: KeyboardEvent) => {
 .plan-card__progress-fill {
   height: 100%;
   border-radius: inherit;
-  background: var(--gradient-secondary);
-  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 36%, transparent);
+  background: color-mix(in srgb, var(--accent) 72%, #2d4a86);
 }
 
 .plan-card__progress-value,

@@ -71,9 +71,8 @@ const normalizedSkeletonLines = computed(() =>
 .loading-spinner__skeleton-line {
   height: 0.85rem;
   width: var(--line-width);
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--code-bg) 25%, var(--border) 37%, var(--code-bg) 63%);
-  background-size: 400% 100%;
+  border-radius: 0.2rem;
+  background: color-mix(in srgb, var(--code-bg) 84%, var(--border));
   animation: loading-spinner-shimmer 1.2s ease-in-out infinite;
 }
 

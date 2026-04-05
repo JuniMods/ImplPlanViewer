@@ -79,7 +79,7 @@ const onClear = (): void => {
 
 .empty-state__action {
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 0.35rem;
   padding: 0.35rem 0.9rem;
   background: var(--bg);
   color: var(--text-h, var(--text));

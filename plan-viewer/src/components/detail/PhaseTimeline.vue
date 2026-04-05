@@ -142,7 +142,7 @@ const progressLabel = computed(() =>
   top: 0.25rem;
   width: 0.6rem;
   height: 0.6rem;
-  border-radius: 999px;
+  border-radius: 0.2rem;
   background: var(--accent);
 }
 

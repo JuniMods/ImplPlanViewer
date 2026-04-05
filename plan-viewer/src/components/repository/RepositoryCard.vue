@@ -76,11 +76,11 @@ const visibilityLabel = computed(() => (props.repository?.private ? 'Private' : 
 <style scoped>
 .repository-card {
   border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
-  border-radius: 1rem;
-  padding: 1rem;
-  background: var(--gradient-surface), color-mix(in srgb, var(--surface-2) 94%, transparent);
+  border-radius: 0.5rem;
+  padding: 1.1rem;
+  background: color-mix(in srgb, var(--surface-2) 95%, transparent);
   display: grid;
-  gap: 0.75rem;
+  gap: 0.95rem;
   box-shadow: var(--shadow-sm);
 }
 
@@ -104,7 +104,7 @@ const visibilityLabel = computed(() => (props.repository?.private ? 'Private' : 
 
 .repository-card__badge {
   border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
-  border-radius: 999px;
+  border-radius: 0.3rem;
   padding: 0.12rem 0.52rem;
   font-size: 0.75rem;
   color: var(--text-h);
@@ -154,7 +154,7 @@ const visibilityLabel = computed(() => (props.repository?.private ? 'Private' : 
 .repository-card__states li,
 .repository-card__topics li {
   border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
-  border-radius: 999px;
+  border-radius: 0.3rem;
   padding: 0.18rem 0.52rem;
   font-size: 0.75rem;
   color: var(--text-m);
@@ -167,14 +167,14 @@ const visibilityLabel = computed(() => (props.repository?.private ? 'Private' : 
   font-weight: 600;
   text-decoration: none;
   border: 1px solid color-mix(in srgb, var(--border) 76%, transparent);
-  border-radius: 999px;
+  border-radius: 0.35rem;
   padding: 0.3rem 0.62rem;
   background: color-mix(in srgb, var(--surface-1) 90%, transparent);
 }
 
 .repository-card__link:hover {
   border-color: var(--border-strong);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent);
+  box-shadow: none;
 }
 
 @media (max-width: 520px) {

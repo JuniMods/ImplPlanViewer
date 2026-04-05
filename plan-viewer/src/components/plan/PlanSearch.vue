@@ -110,11 +110,11 @@ onBeforeUnmount(() => {
 <style scoped>
 .plan-search {
   border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
-  border-radius: 1rem;
-  padding: 0.85rem 1rem;
-  background: var(--gradient-surface), color-mix(in srgb, var(--surface-2) 92%, transparent);
+  border-radius: 0.5rem;
+  padding: 0.95rem 1.1rem;
+  background: color-mix(in srgb, var(--surface-2) 94%, transparent);
   display: grid;
-  gap: 0.55rem;
+  gap: 0.75rem;
   box-shadow: var(--shadow-sm);
 }
 
@@ -133,15 +133,15 @@ onBeforeUnmount(() => {
   flex: 1;
   min-width: 0;
   border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
-  border-radius: 0.7rem;
-  padding: 0.5rem 0.65rem;
+  border-radius: 0.35rem;
+  padding: 0.52rem 0.72rem;
   background: color-mix(in srgb, var(--surface-1) 90%, transparent);
   color: var(--text-h);
 }
 
 .plan-search__clear {
   border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
-  border-radius: 0.7rem;
+  border-radius: 0.35rem;
   padding: 0.35rem 0.6rem;
   font-size: 0.8rem;
   background: color-mix(in srgb, var(--surface-1) 90%, transparent);
@@ -150,7 +150,6 @@ onBeforeUnmount(() => {
 }
 
 .plan-search__clear:hover {
-  transform: translateY(-1px);
   border-color: var(--border-strong);
 }
 

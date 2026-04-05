@@ -52,7 +52,7 @@ const badgeStyle = computed<BadgeStyle>(() => {
   display: inline-flex;
   align-items: center;
   border: 1px solid transparent;
-  border-radius: 999px;
+  border-radius: 0.3rem;
   padding: 0.15rem 0.6rem;
   font-size: 0.75rem;
   font-weight: 600;
