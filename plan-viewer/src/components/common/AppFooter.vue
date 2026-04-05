@@ -1,0 +1,51 @@
+<script setup lang="ts">
+const GITHUB_REPO_URL = 'https://github.com/JuniMods/ImplPlanViewer'
+const GITHUB_ORG_URL = 'https://github.com/JuniMods'
+const currentYear = new Date().getFullYear()
+</script>
+
+<template>
+  <div class="app-footer" data-testid="app-footer">
+    <small class="app-footer__tagline">Built for AI-assisted development workflows</small>
+
+    <div class="app-footer__meta">
+      <span>© {{ currentYear }} JuniMods</span>
+      <span aria-hidden="true">•</span>
+      <a :href="GITHUB_REPO_URL" target="_blank" rel="noreferrer noopener">Repository</a>
+      <span aria-hidden="true">•</span>
+      <a :href="GITHUB_ORG_URL" target="_blank" rel="noreferrer noopener">JuniMods</a>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.app-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.35rem 0.85rem;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.app-footer__tagline {
+  color: var(--text-h);
+}
+
+.app-footer__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.app-footer__meta a {
+  color: inherit;
+}
+
+@media (max-width: 700px) {
+  .app-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
