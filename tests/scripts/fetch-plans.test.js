@@ -23,6 +23,7 @@ test('fetchPlans returns markdown plans and metadata', async () => {
         status: 200,
         json: async () => [
           { type: 'file', name: '001_test.md', path: 'implementation-plans/001_test.md', sha: 'a1', size: 12 },
+          { type: 'file', name: 'auth_plan.md', path: 'implementation-plans/auth_plan.md', sha: 'a3', size: 10 },
           { type: 'file', name: 'notes.txt', path: 'implementation-plans/notes.txt', sha: 'a2', size: 4 },
         ],
         text: async () => '',
@@ -38,16 +39,26 @@ test('fetchPlans returns markdown plans and metadata', async () => {
       }
     }
 
+    if (url.includes('implementation-plans%2Fauth_plan.md')) {
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({ content, html_url: 'https://github.com/JuniMods/Repo/blob/main/implementation-plans/auth_plan.md' }),
+        text: async () => '',
+      }
+    }
+
     throw new Error(`Unexpected request: ${url}`)
   }
 
   try {
     const result = await fetchPlans('JuniMods/Repo')
     assert.equal(result.repository, 'JuniMods/Repo')
-    assert.equal(result.metadata.fileCount, 1)
+    assert.equal(result.metadata.fileCount, 2)
     assert.equal(result.files[0].name, '001_test.md')
+    assert.equal(result.files[1].name, 'auth_plan.md')
     assert.match(result.files[0].content, /Implementation Plan/)
-    assert.equal(calls.length, 2)
+    assert.equal(calls.length, 3)
   } finally {
     global.fetch = originalFetch
   }
