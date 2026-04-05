@@ -146,6 +146,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     needs: build-app
+    if: always() && needs.build-app.result == 'success'
     runs-on: ubuntu-latest
     permissions:
       pages: write
